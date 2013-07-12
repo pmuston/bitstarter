@@ -82,7 +82,6 @@ if(require.main == module) {
         .option('-u, --url <url>', 'url to index.html')
         .parse(process.argv);
     if(program.url){
-       console.log(" -url " + program.url);
        rest.get(program.url).on('complete', function(result) {
          if (result instanceof Error) {
            sys.puts('Error: ' + result.message);
@@ -95,7 +94,6 @@ if(require.main == module) {
 
     }
     else{
-        console.log(" -file " + program.file);
         var checkJson = checkHtmlFile(program.file, program.checks);
         var outJson = JSON.stringify(checkJson, null, 4);
         console.log(outJson);
